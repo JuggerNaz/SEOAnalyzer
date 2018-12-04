@@ -1,18 +1,52 @@
-<h3>Insert your text or your URL</h3>
+<h4>type/paste text and press space bar/click outside input box</h4>
 <div class="row">
   <div class="col-sm-12">
       <div class="form-group">
-          <textarea class="form-control" rows="5"></textarea>
+          <textarea class="form-control textSEO" rows="5" placeholder="test put some text here and..." [(ngModel)]="Model.seoTextValue" 
+          (keydown.space)="onKeyUpAnalyse($event)" (keydown.tab)="onKeyUpAnalyse($event)" (blur)="onKeyUpAnalyse($event)" ></textarea>
         </div>
   </div>
 </div>
+<h4>Or</h4>
 <div class="row">
   <div class="col-sm-12">
     <div class="form-group">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="http://example.com" />
+          <input type="text" class="form-control urlSEO" placeholder="http://example.com" />
         </div>
     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Options</div>
+      <div class="panel-body">
+        
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table table-striped seoAnalysTable">
+      <thead class="thead-light">
+        <tr>
+          <th>#</th>
+          <th>Text/Tag</th>
+          <th>Word</th>
+          <th>Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of seoItems; let sl = index">
+          <th scope="row">{{ sl+1 }}</th>
+          <td>{{ item.textorTag }}</td>
+          <td>{{ item.word }}</td>
+          <td>{{ item.count }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 

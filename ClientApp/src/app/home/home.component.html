@@ -3,7 +3,8 @@
   <div class="col-sm-12">
       <div class="form-group">
           <textarea class="form-control textSEO" rows="5" placeholder="test put some text here and..." [(ngModel)]="Model.seoTextValue" 
-          (keydown.space)="onKeyUpAnalyse($event)" (keydown.tab)="onKeyUpAnalyse($event)" (blur)="onKeyUpAnalyse($event)" ></textarea>
+          (keyup.space)="onKeyUpAnalyse($event)" (keyup.tab)="onKeyUpAnalyse($event)" 
+          (blur)="onKeyUpAnalyse($event)" (paste)="onPaste($event)" ></textarea>
         </div>
   </div>
 </div>
@@ -12,7 +13,8 @@
   <div class="col-sm-12">
     <div class="form-group">
         <div class="form-group">
-          <input type="text" class="form-control urlSEO" placeholder="http://example.com" />
+          <input type="text" class="form-control urlSEO" placeholder="http://example.com" [(ngModel)]="Model.seoUrlValue" 
+          (keyup.enter)="onKeyUpAnalyse($event)" />
         </div>
     </div>
   </div>
